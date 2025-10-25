@@ -1,0 +1,20 @@
+version: '3.9'
+services: 
+  Ever-cart-webapp:
+    build: .
+    container_name: Ever-cart-webapp-cont
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://ever-cart-mongo:27017/evercart
+      - DB_NAME=evercart
+    depends_on:
+      - Ever-cart-db
+
+  Ever-cart-db:
+    image: mongo:latest
+    container_name: ever-cart-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
