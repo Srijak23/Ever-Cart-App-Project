@@ -1,7 +1,8 @@
 version: '3.9'
 services: 
-  Ever-cart-webapp:
+  ever-cart-webapp:
     build: .
+    image: evercart:latest
     container_name: ever-cart-webapp-cont
     ports:
       - "3000:3000"
